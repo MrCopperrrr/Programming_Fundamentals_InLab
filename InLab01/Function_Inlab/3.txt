@@ -1,0 +1,19 @@
+void encrypt(char* text, int shift) {
+    while (*text != '\0') {
+        if (isalpha(*text)) {
+            char base = islower(*text) ? 'a' : 'A';
+            *text = base + ((*text - base + shift) % 26 + 26) % 26;
+        }
+        text++;
+    }
+}
+
+void decrypt(char* text, int shift) {
+    while (*text != '\0') {
+        if (isalpha(*text)) {
+            char base = islower(*text) ? 'a' : 'A';
+            *text = base + ((*text - base - shift + 26) % 26 + 26) % 26;
+        }
+        text++;
+    }
+}

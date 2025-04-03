@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+struct node
+{
+  int data;
+  node *next;
+};
+
+node *createLinkedList(int n); // The implementation is provided implicitly
+
+node *insertNode(node *head, node *newNode, int position)
+{
+  // TO DO
+  node* tail=head;
+  int length=0;
+  newNode->next=NULL;
+  while(tail!=NULL){
+      length+=1;
+    if(tail->next==NULL) break;
+    else tail=tail->next;
+  }
+  if(position>0&&position<=length){
+      node* ptr=head;
+      for(int i=1;i<position;i++){
+          if(i==position-1){
+              newNode->next=ptr->next;
+              ptr->next=newNode;
+              break;
+          }
+          ptr=ptr->next;
+      }
+  }
+  if(position>length){
+   tail->next=newNode;
+   tail=newNode;
+  }
+  return head;
+}
+void print(node *head)
+{
+  while (head != nullptr)
+  {
+    cout << head->data << endl;
+    head = head->next;
+  }
+}
+int main()
+{
+  int n = 0;
+  cin >> n;
+  node *head = createLinkedList(n);
+  node *newNode = new node();
+  cin >> newNode->data;
+  int position = 0;
+  cin >> position;
+  head = insertNode(head, newNode, position);
+  print(head);
+  return 0;
+}
