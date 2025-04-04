@@ -1,0 +1,20 @@
+//1
+void uppercase(string output) {
+    string S;
+    getline(cin, S);
+
+    for (char &c : S) {
+        if (islower(c)) {
+            c = toupper(c);
+        }
+    }
+
+    ofstream outFile(output);
+
+    if (outFile.is_open()) {
+        outFile << S;
+
+        outFile.close();
+
+    }
+}

@@ -1,0 +1,24 @@
+//3
+void process(const char str[], char outstr[]) {
+    int outIndex = 0;
+    bool inWord = false;
+
+    for (int i = 0; str[i] != '\0'; ++i) {
+        if (str[i] != ' ') {
+            if (!inWord) {//true
+                inWord = true;
+                outstr[outIndex++] = str[i];
+            }
+            else {//false
+                outstr[outIndex++] = str[i];
+            }
+        }
+        else {
+            if (inWord) {//
+                outstr[outIndex++] = str[i];
+                inWord = false;
+            }
+        }
+    }
+    outstr[outIndex] = '\0';
+}

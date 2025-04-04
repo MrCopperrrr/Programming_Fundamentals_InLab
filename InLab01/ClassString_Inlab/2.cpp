@@ -1,0 +1,9 @@
+//2
+void deleteWord(string& s, const string& s1) {
+    size_t pos = s.find(s1); // Tìm vị trí đầu tiên của chuỗi s1 trong s
+    while (pos != string::npos) { // Nếu tìm thấy chuỗi s1
+        s.erase(pos, s1.length()); // Xóa chuỗi s1 tại vị trí pos
+        pos = s.find(s1, pos); // Tiếp tục tìm chuỗi s1 từ vị trí pos
+    }
+    cout << s << endl;
+}
